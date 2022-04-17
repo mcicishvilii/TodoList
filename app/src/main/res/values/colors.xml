@@ -7,4 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="figma_blue">#0066F6</color>
+    <color name="figma_grey_textInput_field">#ECECEC</color>
+    <color name="red">#FF0000</color>
+    <color name="lighter_grey">#FFA7A7</color>
+    <color name="figma_addmoney_color">#D5F6EE</color>
+    <color name="figma_withdraw_color">#FFF1D1</color>
+    <color name="grey">#808080</color>
+    <color name="ivory">#EDE4E3</color>
+    <color name="green">#14E10D</color>
 </resources>

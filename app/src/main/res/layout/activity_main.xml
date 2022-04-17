@@ -6,11 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/TW_todos_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Todos"
+        android:layout_marginTop="40dp"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RV_movies"
+        android:id="@+id/RV_TodoList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/TW_todos_title"
         />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Enter to do"
+        android:textSize="17sp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/ET_enterTask"
+        app:layout_constraintDimensionRatio="7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BTN_addbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="25dp"
+        android:text="add task"
+        />
+
+    <EditText
+        android:id="@+id/ET_enterTask"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintDimensionRatio="7"
+        app:layout_constraintBottom_toTopOf="@id/BTN_addbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="25dp"
+        android:hint="enter task here"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
