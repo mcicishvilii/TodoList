@@ -29,12 +29,14 @@ class MoviesAdapter( var todoListList: MutableList<Todo>) : RecyclerView.Adapter
 
 
     override fun onBindViewHolder(holder: TodolistViewHolder, position: Int) {
+
         val task = todoListList[position]
         holder.binding.TWTaskName.text = task.taskName
 
         holder.binding.TWTaskName.setOnClickListener {
             itemClickListener.invoke(task,position)
             holder.binding.indicator.setBackgroundColor(Color.GREEN)
+//            holder.binding.indicator.is
         }
     }
 
@@ -42,6 +44,7 @@ class MoviesAdapter( var todoListList: MutableList<Todo>) : RecyclerView.Adapter
         return todoListList.size
     }
 }
+
 
 data class Todo(
     var taskName: String
