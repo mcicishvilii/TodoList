@@ -15,7 +15,7 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var binding2: LayoutMovieItemBinding
+    private lateinit var binding2: LayoutMovieItemBinding //ეს ცვლადი აქ არ გჭირდება
 
 
     @SuppressLint("ResourceType")
@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 //                ).show()
 //            }
 //        }
+        // შეგიძლია ადაპტერს გადასცე ცარიელი სია პირდაპირ  mutableListOf<Todo>()
 
             binding.RVTodoList.adapter = MoviesAdapter(
                 mutableListOf(
@@ -118,6 +119,18 @@ class MainActivity : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+
+                    /* აქ რო არ გეწეროს ყველა კოდი შეგიძლია ადაპტერი გამოაცხადო ცალკე ცვლადად
+                       val toDoAdapter = ToDoAdapter(mutableListOf<Todo>())
+
+                       და მერე შეგიძლია სხვადასხვა მეთოდები დაამატო ადაპტერში მაგ. აითემისჩამატება
+
+                      ან შენი დასეტილი adapter ის დათრევა შეგიძლია შემდეგნაირად
+
+                      val todoAdapter = binding.recyclerView.adapter as TodoAdapter
+
+
+                     */
                 }
 
             }
