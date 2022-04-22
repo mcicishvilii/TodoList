@@ -36,26 +36,22 @@ class MoviesAdapter( var todoListList: MutableList<Todo>) : RecyclerView.Adapter
         holder.binding.TWTaskName.setOnClickListener {
             itemClickListener.invoke(task,position)
             holder.binding.indicator.setBackgroundColor(Color.GREEN)
-//            holder.binding.indicator.is
 
-            /* აქ უნდა გეწეროს ესეთი კოდი if (task.isComplete) {
+
+            if (task.isComplete) {
                  holder.binding.indicator.setBackgroundColor(Color.GREEN)
 
             } else {
                   holder.binding.indicator.setBackgroundColor(Color.RED)
 
             }
-
-             */
-
         }
     }
-    // აქვე შეგიძლია გქონდეს ფუნქცია
-    /*
+
     fun addItem(todoItem:Todo){
-       todoList.add(0, todoItem)
+       todoListList.add(0, todoItem)
        notifyItemInserted(0)
-     */
+    }
 
     override fun getItemCount(): Int {
         return todoListList.size
@@ -64,8 +60,8 @@ class MoviesAdapter( var todoListList: MutableList<Todo>) : RecyclerView.Adapter
 
 
 data class Todo(
-    var taskName: String
-    //აქ მეორე ცვლადიც გინდა var isComplete:Boolean = false რომელსაც შემდეგ შეცვლი დაჭერრაზე
+    var taskName: String,
+    var isComplete:Boolean = false
 )
 
 class TodolistViewHolder(val binding: LayoutMovieItemBinding) :
