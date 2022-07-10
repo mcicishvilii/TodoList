@@ -10,35 +10,34 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.moviewatchlist.databinding.LayoutMovieItemBinding
 
-class MoviesAdapter( var todoListList: MutableList<Todo>) : RecyclerView.Adapter<TodolistViewHolder>() {
+class UsersAdapter( var usersList: MutableList<User>) : RecyclerView.Adapter<UsersViewHolder>() {
 
 
-    private lateinit var itemClickListener: (Todo,Int) -> Unit
+    private lateinit var itemClickListener: (User,Int) -> Unit
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodolistViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
         val binding =
             LayoutMovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return TodolistViewHolder(binding)
+        return UsersViewHolder(binding)
     }
 
 
-
-    fun setOnItemCLickListener(clickListener: (Todo,Int) -> Unit) {
+    fun setOnItemCLickListener(clickListener: (User,Int) -> Unit) {
         itemClickListener = clickListener
     }
 
 
-    override fun onBindViewHolder(holder: TodolistViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
 
-        val task = todoListList[position]
-        holder.binding.TWTaskName.text = task.taskName
+        val user = usersList[position]
+        holder.binding.TWUsername.text = user.firstName
 
-        holder.binding.TWTaskName.setOnClickListener {
-            itemClickListener.invoke(task,position)
+        holder.binding.TWUsername.setOnClickListener {
+            itemClickListener.invoke(user,position)
             holder.binding.indicator.setBackgroundColor(Color.GREEN)
 
 
-            if (task.isComplete) {
+            if (user.isDeleted) {
                  holder.binding.indicator.setBackgroundColor(Color.GREEN)
 
             } else {
@@ -48,23 +47,20 @@ class MoviesAdapter( var todoListList: MutableList<Todo>) : RecyclerView.Adapter
         }
     }
 
-    fun addItem(todoItem:Todo){
-       todoListList.add(0, todoItem)
-       notifyItemInserted(0)
-    }
-
     override fun getItemCount(): Int {
-        return todoListList.size
+        return usersList.size
     }
 }
 
 
-data class Todo(
-    var taskName: String,
-    var isComplete:Boolean = false
+
+data class User(
+    var firstName: String,
+    var isDeleted:Boolean = false
 )
 
-class TodolistViewHolder(val binding: LayoutMovieItemBinding) :
+
+class UsersViewHolder(val binding: LayoutMovieItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
 }

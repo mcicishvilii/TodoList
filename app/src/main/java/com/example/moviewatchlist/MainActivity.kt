@@ -16,9 +16,6 @@ import org.w3c.dom.Text
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-
-
-    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -26,52 +23,40 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.RVTodoList.layoutManager =
+        binding.RVUsers.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        // შეგიძლია ადაპტერს გადასცე ცარიელი სია პირდაპირ  mutableListOf<Todo>()
-
-            binding.RVTodoList.adapter = MoviesAdapter(
-                mutableListOf<Todo>()
+            binding.RVUsers.adapter = UsersAdapter(
+                mutableListOf<User>()
             ).apply {
 
                 binding.BTNAddbutton.setOnClickListener {
 
-                    if (binding.ETEnterTask.text.isNotEmpty()) {
-                        todoListList.add(Todo(binding.ETEnterTask.text.toString()))
+                    if (binding.ETEnterFirstname.text.isNotEmpty()) {
+
+                        usersList.add(User(binding.ETEnterFirstname.text.toString()))
                         notifyDataSetChanged()
-                        binding.ETEnterTask.text.clear()
+                        binding.ETEnterFirstname.text.clear()
 
 
                     } else {
-                        binding.ETEnterTask.hint = "please enter task to proceed"
-                        binding.ETEnterTask.setHintTextColor(Color.RED)
-                        binding.TWEnterTodo.setTextColor(Color.RED)
+                        binding.ETEnterFirstname.hint = "please enter user to proceed"
+                        binding.ETEnterFirstname.setHintTextColor(Color.RED)
+                        binding.TWEnterUser.setTextColor(Color.RED)
                     }
 
-                    setOnItemCLickListener { task: Todo, i: Int ->
-                        todoListList.remove(task)
+                    setOnItemCLickListener { user: User, i: Int ->
+                        usersList.remove(user)
                         notifyItemChanged(0)
                         notifyItemRangeChanged(0, 5)
 
                         Toast.makeText(
                             this@MainActivity,
-                            "${binding.ETEnterTask.text.toString()} completed",
+                            "${binding.ETEnterFirstname.text.toString()} deleted",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
 
-                    /* აქ რო არ გეწეროს ყველა კოდი შეგიძლია ადაპტერი გამოაცხადო ცალკე ცვლადად
-                       val toDoAdapter = ToDoAdapter(mutableListOf<Todo>())
-
-                       და მერე შეგიძლია სხვადასხვა მეთოდები დაამატო ადაპტერში მაგ. აითემისჩამატება
-
-                      ან შენი დასეტილი adapter ის დათრევა შეგიძლია შემდეგნაირად
-
-                      val todoAdapter = binding.recyclerView.adapter as TodoAdapter
-
-
-                     */
                 }
 
             }

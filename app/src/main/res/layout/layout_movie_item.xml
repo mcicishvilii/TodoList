@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!-- გასტილვა გვვკლია-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/start_guideline"
@@ -23,7 +22,7 @@
         app:layout_constraintGuide_percent="0.95" />
 
     <TextView
-        android:id="@+id/TW_taskName"
+        android:id="@+id/TW_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,7 +33,7 @@
         android:layout_marginTop="10dp"
         android:padding="6dp"
         android:textSize="13sp"
-        android:text="task1"
+        android:text="user1"
         android:textAlignment="center"
         android:background="@drawable/rectangle"
         />
