@@ -20,9 +20,13 @@ class UsersAdapter : ListAdapter<User,UsersAdapter.UsersViewHolder>(DiffCallBack
     }
 
 
-    fun setOnItemCLickListener(clickListener: (User,Int) -> Unit) {
+    fun setOnDeleteClickListener(clickListener: (User,Int) -> Unit) {
         itemClickListener = clickListener
     }
+
+//    fun setOnItemCLickListener(clickListener: (User,Int) -> Unit) {
+//        itemClickListener = clickListener
+//    }
 
 
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
@@ -41,7 +45,11 @@ class UsersAdapter : ListAdapter<User,UsersAdapter.UsersViewHolder>(DiffCallBack
             fun bind(user: User){
                 binding.tvFirstName.text = user.firstName
                 binding.tvLastName.text = user.lastName
+
+                itemClickListener.invoke(user,adapterPosition)
             }
+
+
 
     }
 

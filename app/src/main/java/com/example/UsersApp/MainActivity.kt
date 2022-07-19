@@ -16,12 +16,14 @@ class MainActivity : AppCompatActivity() {
 
         init()
 
+
     }
 
 
 
 
     private fun init(){
+
         binding.BTNAddbutton.setOnClickListener {
             val firstName = binding.etFirstName.text.toString()
             val lastName = binding.etLastname.text.toString()
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             addUser(firstName, lastName)
             usersAdapter.submitList(usersList)
         }
+
 
     }
 
@@ -51,7 +54,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun removeUser(){
+        usersAdapter.apply {
+            setOnDeleteClickListener { user, i ->
+                usersList.remove(user)
+                submitList(usersList)
+            }
 
+        }
     }
 }
 
