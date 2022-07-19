@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
+    android:id="@+id/mainLayout"
     android:background="@drawable/rectangle">
 
 
@@ -13,51 +14,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_begin="19dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/end_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/center_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.68" />
 
     <TextView
         android:id="@+id/tv_firstName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="15dp"
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/figma_withdraw_color"
         android:padding="12dp"
-        android:text="misho"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_lastName"
-        app:layout_constraintStart_toEndOf="@id/start_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/center_guideline"
+        app:layout_constraintStart_toStartOf="@+id/start_guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_lastName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_age"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/figma_withdraw_color"
         android:padding="12dp"
-        android:text="cicishvili"
+        android:layout_margin="15dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/center_guideline"
+        app:layout_constraintStart_toStartOf="@+id/start_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_firstName" />
+
+
+    <ImageButton
+        android:id="@+id/mMenus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_baseline_clear_24"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
-        app:layout_constraintStart_toEndOf="@id/tv_firstName"
+        app:layout_constraintStart_toEndOf="@id/center_guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
 
