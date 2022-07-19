@@ -15,26 +15,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         init()
+        removeUser()
 
 
     }
 
 
-
-
     private fun init(){
 
         binding.BTNAddbutton.setOnClickListener {
+            setupRecycler()
+
             val firstName = binding.etFirstName.text.toString()
             val lastName = binding.etLastname.text.toString()
-
-            setupRecycler()
             addUser(firstName, lastName)
             usersAdapter.submitList(usersList)
         }
 
 
     }
+
 
     private fun addUser(firstName: String, lastName: String) {
         usersList.add(
@@ -55,11 +55,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun removeUser(){
         usersAdapter.apply {
-            setOnDeleteClickListener { user, i ->
+            setOnItemCLickListener { user, i ->
                 usersList.remove(user)
                 submitList(usersList)
-            }
 
+            }
         }
     }
 }

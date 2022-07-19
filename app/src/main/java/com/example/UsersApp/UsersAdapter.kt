@@ -12,7 +12,6 @@ class UsersAdapter : ListAdapter<User,UsersAdapter.UsersViewHolder>(DiffCallBack
 
 
     private lateinit var itemClickListener: (User,Int) -> Unit
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
         val binding =
             LayoutMovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,13 +19,11 @@ class UsersAdapter : ListAdapter<User,UsersAdapter.UsersViewHolder>(DiffCallBack
     }
 
 
-    fun setOnDeleteClickListener(clickListener: (User,Int) -> Unit) {
+
+
+    fun setOnItemCLickListener(clickListener: (User,Int) -> Unit) {
         itemClickListener = clickListener
     }
-
-//    fun setOnItemCLickListener(clickListener: (User,Int) -> Unit) {
-//        itemClickListener = clickListener
-//    }
 
 
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
@@ -46,7 +43,9 @@ class UsersAdapter : ListAdapter<User,UsersAdapter.UsersViewHolder>(DiffCallBack
                 binding.tvFirstName.text = user.firstName
                 binding.tvLastName.text = user.lastName
 
-                itemClickListener.invoke(user,adapterPosition)
+                binding.tvFirstName.setOnClickListener {
+                    itemClickListener.invoke(user,adapterPosition)
+                }
             }
 
 
