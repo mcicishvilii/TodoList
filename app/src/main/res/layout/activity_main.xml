@@ -21,7 +21,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RV_Users"
+        android:id="@+id/rv_Users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -29,25 +29,24 @@
         />
 
 
-    <TextView
-        android:id="@+id/TW_enterUser"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Enter first name"
-        android:textSize="17sp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/ET_enterFirstname"
-        app:layout_constraintDimensionRatio="7"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <EditText
-        android:id="@+id/ET_enterFirstname"
+        android:id="@+id/et_lastname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintDimensionRatio="7"
         app:layout_constraintBottom_toTopOf="@id/BTN_addbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="25dp"
+        android:hint="enter task here"
+        />
+
+    <EditText
+        android:id="@+id/et_firstName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintDimensionRatio="7"
+        app:layout_constraintBottom_toTopOf="@id/et_lastname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="25dp"

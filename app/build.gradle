@@ -10,6 +10,7 @@ android {
         viewBinding true
     }
 
+
     defaultConfig {
         applicationId "com.example.moviewatchlist"
         minSdk 21

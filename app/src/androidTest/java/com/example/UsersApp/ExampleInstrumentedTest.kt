@@ -1,4 +1,4 @@
-package com.example.moviewatchlist
+package com.example.UsersApp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
