@@ -28,7 +28,6 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         init()
     }
 
@@ -64,6 +63,7 @@ class MainFragment : Fragment() {
 
         usersAdapter.submitList(usersList)
     }
+
 
 
     private fun addUser(firstName: String, lastName: String, age: String) {
